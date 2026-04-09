@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Ascend - Results</title>
+    <link rel="stylesheet" href="css/result.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/audio-controls.css">
+</head>
+<body class="stars-bg">
+    <!-- Floating hearts animation -->
+    <div class="floating-hearts">
+        <span style="animation: floatHeart 8s ease-in infinite; animation-delay: 0s; position: fixed; left: 10%; bottom: -50px;">♥</span>
+        <span style="animation: floatHeart2 10s ease-in infinite; animation-delay: 2s; position: fixed; left: 20%; bottom: -50px;">♥</span>
+        <span style="animation: floatHeart3 12s ease-in infinite; animation-delay: 4s; position: fixed; left: 30%; bottom: -50px;">♥</span>
+        <span style="animation: floatHeart 9s ease-in infinite; animation-delay: 6s; position: fixed; left: 70%; bottom: -50px;">♥</span>
+        <span style="animation: floatHeart2 11s ease-in infinite; animation-delay: 1s; position: fixed; left: 80%; bottom: -50px;">♥</span>
+        <span style="animation: floatHeart3 13s ease-in infinite; animation-delay: 3s; position: fixed; left: 40%; bottom: -50px;">♥</span>
+    </div>
+
+    <div class="result-card">
+        <!-- Trophy Section -->
+        <div class="trophy-outer-ring">
+            <div class="rotating-glow"></div>
+            <svg class="progress-ring" width="140" height="140">
+                <circle class="progress-ring__circle" stroke="#ffbd00" stroke-width="8" fill="transparent" r="60" cx="70" cy="70"/>
+            </svg>
+            <div class="trophy-section">
+                <img src="assets/images/Trophy.png" alt="Trophy" class="trophy-icon">
+            </div>
+        </div>
+
+        <!-- Rank Display -->
+        <div class="rank-display-box">
+            <div id="rank-name" class="rank-label">Heart Novice</div>
+            <p id="rank-quote" class="rank-quote-text">Every expert was once a beginner!</p>
+        </div>
+
+        <!-- Score Tiles -->
+        <div class="floating-stats">
+            <div class="score-tile correct-box">
+                <span id="correct-count" class="big-score-number">00</span>
+                <span class="score-label">CORRECT</span>
+            </div>
+            <div class="score-tile wrong-box">
+                <span id="wrong-count" class="big-score-number">00</span>
+                <span class="score-label">WRONG</span>
+            </div>
+        </div>
+
+        <!-- Profile Link -->
+        <div class="profile-area">
+            <a href="profile.html" class="profile-link">
+                <span>View Profile</span>
+            </a>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="results-actions-row">
+            <button onclick="location.href='leaderboard.html'" class="leaderboard-circle-btn" title="Leaderboard">
+                <img src="assets/images/lb1.png" alt="Leaderboard">
+            </button>
+            <button id="playAgainBtn" class="pill-action-btn pulse-btn">PLAY AGAIN</button>
+            <button id="exitBtn" class="pill-action-btn exit-btn">EXIT</button>
+        </div>
+    </div>
+
+    <script type="module" src="scripts/result.js"></script>    
+    <script type="module" src="scripts/session.js"></script>
+</body>
+</html>

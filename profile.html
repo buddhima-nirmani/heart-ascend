@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Ascend | Player Profile</title>
+    <link rel="stylesheet" href="css/profile.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/audio-controls.css">
+    <style>
+        /* Fix for button text centering in navigation */
+        .glass-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+    </style>
+</head>
+<body class="stars-bg">
+    <!-- Floating hearts animation -->
+    <div class="floating-hearts">
+        <span style="animation: floatHeart 8s ease-in infinite; animation-delay: 0s; position: fixed; left: 10%; bottom: -50px;">♥</span>
+        <span style="animation: floatHeart2 10s ease-in infinite; animation-delay: 2s; position: fixed; left: 20%; bottom: -50px;">♥</span>
+        <span style="animation: floatHeart3 12s ease-in infinite; animation-delay: 4s; position: fixed; left: 30%; bottom: -50px;">♥</span>
+        <span style="animation: floatHeart 9s ease-in infinite; animation-delay: 6s; position: fixed; left: 70%; bottom: -50px;">♥</span>
+        <span style="animation: floatHeart2 11s ease-in infinite; animation-delay: 1s; position: fixed; left: 80%; bottom: -50px;">♥</span>
+        <span style="animation: floatHeart3 13s ease-in infinite; animation-delay: 3s; position: fixed; left: 40%; bottom: -50px;">♥</span>
+    </div>
+
+    <nav class="glass-nav">
+        <div class="nav-logo">
+            <img src="assets/images/heart icon.png" alt="Heart" class="hero-heart">
+            <span class="hero-title-gradient">HEART ASCEND</span>
+        </div>
+        <div class="nav-actions">
+            <a href="howtoplay.html" class="glass-btn secondary">BACK TO GAME</a>
+            <a href="leaderboard.html" class="leaderboard-circle-btn" title="Leaderboard">
+                <img src="assets/images/lb1.png" alt="Leaderboard">
+            </a>
+            <a href="#" id="exitBtn" class="glass-btn primary">EXIT</a>
+        </div>
+    </nav>
+
+    <main class="profile-container">
+        <!-- Loading Skeleton -->
+        <div id="profile-loading-skeleton" class="profile-loading-skeleton">
+            <div class="skeleton-identity-card">
+                <div class="skeleton-avatar"></div>
+                <div class="skeleton-name"></div>
+                <div class="skeleton-rank"></div>
+                <div class="skeleton-leaderboard"></div>
+            </div>
+            <div class="skeleton-stats-panel">
+                <div class="skeleton-stat-item"></div>
+                <div class="skeleton-stat-item"></div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="dashboard-grid" id="profile-content" style="display: none;">
+            <!-- Identity Card -->
+            <section class="identity-card">
+                <div class="avatar-wrapper-large">
+                    <img src="assets/images/p4.png" alt="Pilot" class="pilot-img">
+                </div>
+                <div class="name-edit-wrapper">
+                    <h1 class="player-name">Player 01</h1>
+                    <button id="editNicknameBtn" class="edit-nickname-btn" title="Edit Nickname">
+                        <span class="edit-icon">✎</span>
+                    </button>
+                </div>
+                
+                <!-- Nickname Edit Modal -->
+                <div id="nicknameModal" class="nickname-modal">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h2>Edit Nickname</h2>
+                            <button class="modal-close" id="modalCloseBtn">✕</button>
+                        </div>
+                        <div class="modal-body">
+                            <input type="text" id="nicknameInput" class="nickname-input" placeholder="Enter your new nickname" maxlength="10">
+                            <p class="char-count"><span id="charCount">0</span>/10</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="modal-btn cancel-btn" id="modalCancelBtn">Cancel</button>
+                            <button class="modal-btn confirm-btn" id="modalConfirmBtn">Update</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="rank-pill-bright">Heart Novice</div>
+                <div class="leaderboard-rank-display">
+                    <span class="rank-icon">🏆</span>
+                    <span class="rank-position" id="leaderboard-rank-display">—</span>
+                </div>
+            </section>
+
+            <!-- Stats Panel -->
+            <section class="stats-panel">
+                <div class="stat-item-bright">
+                    <div class="stat-icon-wrap purple-glow">
+                        <img src="assets/images/joystick.png" alt="Missions">
+                    </div>
+                    <div class="stat-data">
+                        <h3 id="display-games-played">00</h3>
+                        <p>Missions Completed</p>
+                    </div>
+                </div>
+
+                <div class="stat-item-bright">
+                    <div class="stat-icon-wrap orange-glow">
+                        <img src="assets/images/fire.png" alt="Streak">
+                    </div>
+                    <div class="stat-data">
+                        <h3 id="display-current-streak">00</h3>
+                        <p>Perfect Streak</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script type="module" src="scripts/profile.js"></script>
+    <script type="module" src="scripts/session.js"></script>
+</body>
+</html>

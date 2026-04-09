@@ -1,0 +1,37 @@
+/* Mute Control Styling */
+/* Positioned at the bottom corner with theme-matching gradient */
+
+.mute-control {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 10000;
+    background: linear-gradient(135deg, #ff4e50, #9d50bb);
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(157, 80, 187, 0.4);
+    border: 2.5px solid white;
+    transition: all 0.3s ease;
+    user-select: none;
+}
+
+.mute-icon {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    filter: brightness(0) invert(1); /* Forces the icons to be white to match the theme */
+}
+
+.mute-control:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(157, 80, 187, 0.3);
+}
+
+.mute-control:active {
+    transform: scale(0.95);
+}

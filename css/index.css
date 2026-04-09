@@ -1,0 +1,157 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Fredoka', sans-serif;
+}
+
+/* --- Welcome Screen Specifics --- */
+.welcome-bg {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    /* Point this to your saved 'bg' image */
+    background: url('../assets/images/bg.jpg') no-repeat center center fixed; 
+    background-size: cover;
+    
+    /* Fallback color in case image fails to load */
+    background-color: #400b5a; 
+    overflow: hidden;
+}
+
+.welcome-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.2); /* 20% dark tint */
+    z-index: 1;
+}
+
+.welcome-card {
+    /* Glassmorphism Effect */
+    position: relative;
+    z-index: 2; /* Ensure it sits above the dark overlay */
+    background: rgba(255, 255, 255, 0.85) !important;
+    backdrop-filter: blur(20px);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    padding: 50px 40px !important;
+    max-width: 500px !important;
+}
+
+
+.welcome-hero {
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+/* Enhanced Title for Welcome Screen */
+.welcome-card .title {
+    font-size: 3rem;
+    margin-bottom: 5px;
+    text-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.welcome-text {
+    margin-bottom: 35px;
+    color: #555;
+    line-height: 1.5;
+    font-size: 1.1rem;
+}
+
+.signup-card.welcome-card{
+    background: white;
+    border-radius: 40px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    z-index: 2;
+}
+
+/* 3. Logo & Title */
+.heart-icon {
+    width: 100px;
+    margin-bottom: 20px;
+}
+
+.title {
+    font-size: 2.2rem;
+    font-weight: 900;
+    letter-spacing: 1px;
+    background: linear-gradient(to right, #ff4e50, #9d50bb);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+    color: #ff4e50;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+
+/* 5. The Gradient Button */
+.signup-btn {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+    font-size: 1.1rem;
+    cursor: pointer;
+    background: linear-gradient(to right, #9d50bb, #ff4e50);
+    margin-top: 10px;
+    
+    /* THE MAGIC: Transition makes the change smooth */
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out, border-radius 0.2s ease-in-out;;
+}
+
+.signup-btn:hover {
+    /* Scale 1.05 makes it 5% larger */
+    transform: scale(1.05);
+    border-radius: 12px; 
+    box-shadow: 0 8px 20px rgba(157, 80, 187, 0.4);
+}
+
+.signup-btn:active {
+    /* Scale 0.98 makes it "shrink" slightly when clicked, like a real button */
+    transform: scale(0.98);
+    border-radius: 10px; /* Return to original roundness when pressed */
+}
+
+
+/* Customizing the Start Button to be more prominent */
+.start-game-btn {
+    padding: 18px !important;
+    font-size: 1.3rem !important;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 10px 25px rgba(255, 78, 80, 0.3);
+}
+
+.pulse-heart {
+    width: 30px;
+    animation: heartPulse 2s infinite;
+}
+
+/* Re-using your heart bounce for the welcome page */
+@keyframes heartPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+    100% { transform: scale(1); }
+}
+
+.heart-icon.bounce {
+    width: 120px;
+    animation: heartPulse 1.5s ease-in-out infinite;
+    filter: drop-shadow(0 10px 15px rgba(255, 78, 80, 0.4));
+}

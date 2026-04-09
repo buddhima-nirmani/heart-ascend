@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Ascend - Leaderboard</title>
+    <link rel="stylesheet" href="css/leaderboard.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/audio-controls.css">
+    <style>
+        /* Fix for button text centering in navigation */
+        .glass-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+    </style>
+</head>
+<body class="stars-bg">
+
+    <!-- Floating hearts animation (matches your result/profile pages) -->
+    <div class="floating-hearts">
+        <span style="animation: floatHeart 8s ease-in infinite; animation-delay: 0s; position: fixed; left: 10%; bottom: -50px;">♥</span>
+        <span style="animation: floatHeart2 10s ease-in infinite; animation-delay: 2s; position: fixed; left: 20%; bottom: -50px;">♥</span>
+        <span style="animation: floatHeart3 12s ease-in infinite; animation-delay: 4s; position: fixed; left: 30%; bottom: -50px;">♥</span>
+        <span style="animation: floatHeart 9s ease-in infinite; animation-delay: 6s; position: fixed; left: 70%; bottom: -50px;">♥</span>
+        <span style="animation: floatHeart2 11s ease-in infinite; animation-delay: 1s; position: fixed; left: 80%; bottom: -50px;">♥</span>
+        <span style="animation: floatHeart3 13s ease-in infinite; animation-delay: 3s; position: fixed; left: 40%; bottom: -50px;">♥</span>
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav class="glass-nav">
+        <div class="nav-logo">
+            <img src="assets/images/heart icon.png" alt="Heart" class="hero-heart">
+            <span class="hero-title-gradient">HEART ASCEND</span>
+        </div>
+        <div class="nav-actions">
+            <a href="howtoplay.html" class="glass-btn secondary">BACK TO GAME</a>
+            <a href="profile.html" class="glass-btn secondary">MY PROFILE</a>
+            <a href="#" id="exitBtn" class="glass-btn primary">EXIT</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="leaderboard-container">
+
+        <!-- Header -->
+        <div class="lb-header">
+            <img src="assets/images/heart icon.png" alt="Heart" class="lb-heart-icon">
+            <h1 class="lb-title">LEADERBOARD</h1>
+            <p class="lb-subtitle">Ranked by Longest Win Streak 🔥</p>
+        </div>
+
+        <!-- Top 3 Podium -->
+        <div class="podium-section">
+
+            <!-- 2nd Place -->
+            <div class="podium-card silver" id="podium-2">
+                <div class="podium-position">2</div>
+                <div class="podium-medal"><img src="assets/images/silver.png" alt="Silver Medal"></div>
+                <div class="podium-name" id="p2-name">—</div>
+                <div class="podium-rank-title" id="p2-rank">—</div>
+                <div class="podium-streak" id="p2-streak">0 🔥</div>
+            </div>
+
+            <!-- 1st Place -->
+            <div class="podium-card gold" id="podium-1">
+                <div class="crown">👑</div>
+                <div class="podium-position">1</div>
+                <div class="podium-medal"><img src="assets/images/gold.png" alt="Gold Medal"></div>
+                <div class="podium-name" id="p1-name">—</div>
+                <div class="podium-rank-title" id="p1-rank">—</div>
+                <div class="podium-streak" id="p1-streak">0 🔥</div>
+            </div>
+
+            <!-- 3rd Place -->
+            <div class="podium-card bronze" id="podium-3">
+                <div class="podium-position">3</div>
+                <div class="podium-medal"><img src="assets/images/bronze.png" alt="Bronze Medal"></div>
+                <div class="podium-name" id="p3-name">—</div>
+                <div class="podium-rank-title" id="p3-rank">—</div>
+                <div class="podium-streak" id="p3-streak">0 🔥</div>
+            </div>
+
+        </div>
+
+        <!-- Full Leaderboard Table -->
+        <div class="lb-table-wrapper">
+            <div class="lb-table-header">
+                <span class="col-rank-pos">#</span>
+                <span class="col-player">Player</span>
+                <span class="col-streak">Best Streak</span>
+                <span class="col-rank">Rank Title</span>
+            </div>
+
+            <!-- Rows injected here by leaderboard.js -->
+            <div id="lb-rows">
+                <div class="lb-loading">
+                    <div class="loading-spinner"></div>
+                    <p>Loading champions...</p>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <script type="module" src="scripts/leaderboard.js"></script>
+    <script type="module" src="scripts/session.js"></script>
+
+</body>
+</html>

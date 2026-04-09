@@ -1,0 +1,205 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.background-wrapper {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #f067b4, #813df4);
+}
+
+
+.welcome-card {
+    /* Glassmorphism Effect */
+    position: relative;
+    z-index: 2; /* Ensure it sits above the dark overlay */
+    background: rgba(255, 255, 255, 0.85) !important;
+    backdrop-filter: blur(20px);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    padding: 20px 40px !important;
+    max-width: 500px !important;
+}
+
+.stars-bg {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Main Gradient + "Star" Layers */
+    background: 
+        radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 0.2) 2px, transparent 40px),
+        radial-gradient(circle at 90% 10%, rgba(255, 255, 255, 0.15) 3px, transparent 50px),
+        radial-gradient(circle at 85% 85%, rgba(255, 255, 255, 0.2) 2px, transparent 40px),
+        radial-gradient(circle at 15% 75%, rgba(255, 255, 255, 0.1) 4px, transparent 60px),
+        radial-gradient(circle at 50% 10%, rgba(255, 255, 255, 0.1) 2px, transparent 30px),
+        linear-gradient(135deg, #f067b4, #813df4); /* Your original gradient */
+}
+
+/* 2. Adding Floating Star Icons (Pseudo-elements for larger stars) */
+.stars-bg::before, .stars-bg::after {
+    content: '★';
+    position: absolute;
+    color: rgba(255, 255, 255, 0.15);
+    filter: blur(1px);
+    z-index: 0;
+}
+
+.stars-bg::before {
+    top: 15%;
+    left: 8%;
+    font-size: 50px;
+    transform: rotate(-15deg);
+    animation: twinkle 4s infinite ease-in-out;
+}
+
+.stars-bg::after {
+    bottom: 15%;
+    right: 7%;
+    font-size: 70px;
+    transform: rotate(20deg);
+    animation: twinkle 5s infinite ease-in-out 1s;
+}
+
+/* 3. Twinkle Animation for the stars */
+@keyframes twinkle {
+    0%, 100% { opacity: 0.3; transform: scale(1) rotate(0deg); }
+    50% { opacity: 0.7; transform: scale(1.1) rotate(5deg); }
+}
+
+/* Ensure the card stays on top of the stars */
+.signup-card {
+    position: relative;
+    z-index: 1;
+
+}
+
+/* Positioning dummy stars around the card */
+.stars-bg::before { top: 10%; left: 5%; transform: rotate(15deg); }
+.stars-bg::after { bottom: 20%; right: 10%; transform: rotate(-20deg); font-size: 60px; }
+
+.signup-card.welcome-card{
+    background: white;
+    border-radius: 40px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    z-index: 2;
+}
+
+.signup-card.play-card {
+    background: white;
+    padding: 35px 40px; /* Reduced top/bottom padding from 50px to 25px */
+    border-radius: 30px;
+    width: 90%;
+    max-width: 600px;    /* Reverted to 500px for a better fit */
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 2;
+}
+
+/* 3. Logo & Title */
+.heart-icon {
+    width: 100px;
+    margin-bottom: 20px;
+}
+
+.title {
+    font-size: 2.2rem;
+    font-weight: 900;
+    letter-spacing: 1px;
+    background: linear-gradient(to right, #ff4e50, #9d50bb);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+    color: #ff4e50;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+
+/* 4. Form Styling */
+.input-group {
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+.input-group label {
+    display: block;
+    font-weight: 500; 
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    color: #333; /* Ensuring it stays readable but soft */
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #9d50bb; /* Purple border */
+    border-radius: 8px;
+    outline: none;
+    color: #333;
+}
+
+.input-group input::placeholder {
+    color: #ccc;
+}
+
+/* 5. The Gradient Button */
+.signup-btn {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+    font-size: 1.1rem;
+    cursor: pointer;
+    background: linear-gradient(to right, #9d50bb, #ff4e50);
+    margin-top: 10px;
+    
+    /* THE MAGIC: Transition makes the change smooth */
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out, border-radius 0.2s ease-in-out;;
+}
+
+.signup-btn:hover {
+    /* Scale 1.05 makes it 5% larger */
+    transform: scale(1.05);
+    border-radius: 12px; 
+    box-shadow: 0 8px 20px rgba(157, 80, 187, 0.4);
+}
+
+.signup-btn:active {
+    /* Scale 0.98 makes it "shrink" slightly when clicked, like a real button */
+    transform: scale(0.98);
+    border-radius: 10px; /* Return to original roundness when pressed */
+}
+
+/* 6. Footer Link */
+.footer-text {
+    margin-top: 10px;
+    font-size: 0.8rem;
+    color: #555;
+}
+
+.footer-text a {
+    color: #ff4e50; /* Matches your theme purple */
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s;
+}
+
+.footer-text a:hover {
+    color: #6b0d0e; /* Pink on hover */
+    text-decoration: underline;
+}
+

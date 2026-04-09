@@ -1,0 +1,535 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Fredoka', sans-serif;
+}
+
+.stars-bg {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Main Gradient + "Star" Layers */
+    background: 
+        radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 0.2) 2px, transparent 40px),
+        radial-gradient(circle at 90% 10%, rgba(255, 255, 255, 0.15) 3px, transparent 50px),
+        radial-gradient(circle at 85% 85%, rgba(255, 255, 255, 0.2) 2px, transparent 40px),
+        radial-gradient(circle at 15% 75%, rgba(255, 255, 255, 0.1) 4px, transparent 60px),
+        radial-gradient(circle at 50% 10%, rgba(255, 255, 255, 0.1) 2px, transparent 30px),
+        linear-gradient(135deg, #f067b4, #813df4); /* Your original gradient */
+}
+
+/* 2. Adding Floating Star Icons (Pseudo-elements for larger stars) */
+.stars-bg::before, .stars-bg::after {
+    content: '★';
+    position: absolute;
+    color: rgba(255, 255, 255, 0.15);
+    filter: blur(1px);
+    z-index: 0;
+}
+
+.stars-bg::before {
+    top: 15%;
+    left: 8%;
+    font-size: 50px;
+    transform: rotate(-15deg);
+    animation: twinkle 4s infinite ease-in-out;
+}
+
+.stars-bg::after {
+    bottom: 15%;
+    right: 7%;
+    font-size: 70px;
+    transform: rotate(20deg);
+    animation: twinkle 5s infinite ease-in-out 1s;
+}
+
+/* 3. Twinkle Animation for the stars */
+@keyframes twinkle {
+    0%, 100% { opacity: 0.3; transform: scale(1) rotate(0deg); }
+    50% { opacity: 0.7; transform: scale(1.1) rotate(5deg); }
+}
+
+/* Positioning dummy stars around the card */
+.stars-bg::before { top: 10%; left: 5%; transform: rotate(15deg); }
+.stars-bg::after { bottom: 20%; right: 10%; transform: rotate(-20deg); font-size: 60px; }
+
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 20px;
+    border-radius: 50px;
+    flex-grow: 1;
+}
+
+.small-heart {width: 35px; height: auto;}
+
+.logo-area, .stats-area {
+    background: white;
+    align-items: center;
+    padding: 8px 18px;
+    border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+
+.stats-area {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.title-gradient{
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 0.7px;
+    background: linear-gradient(to right, #ff4e50, #9d50bb);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
+.profile-box img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border: 2px solid #bc0000;
+    border-radius: 12px;
+}
+
+
+
+.timer-box {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #ffffff;
+    font-weight: 500;
+    Font-size: 1.2rem;
+    background: #ff7e00; /* Orange-Red gradient feel */
+    background: linear-gradient(to bottom, #FFA100, #FF004D);
+    padding: 8px 15px;
+    border-radius: 10px;
+}
+
+.clock-icon { width: 20px; }
+
+ /* --- PROGRESS BAR ---  */
+
+.progress-container {
+    width: 100%;
+    height: 35px;
+    background: rgba(233, 225, 225, 0.3); /* Transparent track */
+    border-radius: 10px;
+    margin: 15px 0;
+    overflow: hidden;
+    box-shadow: 0px 4px 6px rgba(52, 6, 26, 0.4);
+}
+
+.progress-fill {
+    width: 0%; /* Starts at 0 */
+    height: 100%;
+    background: linear-gradient(to right, #ff4e50, #9d50bb); /* Theme gradient */
+    transition: width 0.4s ease-in-out; /* Smooth sliding effect */
+    border-radius: 0px;
+}
+
+/* Game Frame */
+.game-container-label, .answer-label {
+    text-align: left;
+    font-weight: 700;
+    color: #353535;
+    margin-bottom: 5px;
+    margin-left: 10px;
+    display: block;
+}
+
+.api-frame {
+    background: white;
+    padding: 10px ;
+    border-radius: 15px;
+    border: 5px solid #e546a5; /* The bright pink border in your image */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 45vh;           /* Adjusts height based on screen size to prevent scroll */
+    min-height: 320px;
+    overflow: hidden;
+    margin-bottom: 15px;
+    box-shadow: 2px 4px 7px rgba(52, 6, 26, 0.4);
+}
+
+#game-image {
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+}
+
+.answer-section {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    background: rgba(255, 255, 255, 0.9); /* Subtle floating effect */
+    padding: 10px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* Answer Section */
+.input-row {
+    display: flex;
+    gap: 15px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+body.stars-bg:has(.compact) {
+    align-items: flex-start; /* Moves game card to the top */
+    padding-top: 50px;       /* Margin at the very top */
+    padding-right: 70px;
+}
+.game-card.compact {
+    position: relative;
+    margin: 0 auto;         /* Force horizontal centering */
+    width: 90%;
+    max-width: 850px;
+    height: auto;
+    max-height: 98vh;       /* Strictly prevent it from going off-screen */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+/* --- THE TOP HEADER PILL --- */
+.game-header {
+    margin-top: 0;
+    width: 100%;
+    box-sizing: border-box; /* Ensures padding doesn't add to width */
+    background: white;
+    padding: 10px 25px;
+    border-radius: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0px 4px 6px rgba(52, 6, 26, 0.4);
+    gap: 10px;
+}
+
+#game-image[src*="load.png"] {
+    width: 60px !important; 
+    height: 60px !important;
+    animation: rotateLoader 2s linear infinite;
+    object-fit: contain;
+    margin: auto;
+}
+
+/* When the real game image loads, remove the animation and scale it up */
+#game-image:not([src*="load.png"]) {
+    width: 100%;
+    height: 100%;
+    max-width: 600px; /* Adjust to match your white card width */
+    max-height: 350px;
+    object-fit: contain;
+    animation: fadeIn 0.4s ease-in-out;
+}
+
+/* Animation for the loading icon */
+@keyframes rotateLoader {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Style for the text that appears if the image is missing/loading
+#game-image::after { 
+   content: none !important; /* Remove the "Galaxy" text if it's causing layout jumps */
+/* }  */
+
+
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.98); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.logo-side {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.nav-heart-icon { width: 45px; height: auto; }
+
+.nav-title-text {
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: #9d50bb; /* Matching the purple in your image */
+}
+
+
+
+/* THE SPECIFIC RED TIMER BOX */
+.timer-red-box {
+    background: #ff7e00; /* Orange-Red gradient feel */
+    background: linear-gradient(to bottom, #ff9f43, #ff4e50);
+    padding: 8px 15px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: white;
+    font-weight: 800;
+    font-size: 1.2rem;
+    box-shadow: 0 4px 10px rgba(255, 78, 80, 0.4);
+}
+
+.timer-red-box img { width: 22px; filter: brightness(0) invert(1); }
+
+/* --- THE GAME IMAGE FRAME --- */
+
+
+#api-image {
+    width: 100%;
+    max-width: 600px;
+    border-radius: 10px;
+}
+
+/* --- BOTTOM INPUT & SUBMIT --- */
+.bottom-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.input-wrapper input {
+    background: white;
+    border: 1px solid #ddd;
+    padding: 15px 30px;
+    border-radius: 15px;
+    width: 350px;
+    font-size: 1rem;
+    color: #000000;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    
+}
+.input-wrapper input {
+    background: white;
+    border: 1px solid #ddd;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    color: #000000;
+    flex: 2; /* Takes more space */
+}
+
+.submit-pill-btn {
+    background: linear-gradient(to right, #9d50bb, #ff4e50);
+    color: white;
+    border: none;
+    padding: 12px 35px;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: transform 0.2s, opacity 0.2s;
+
+    
+}
+
+.submit-pill-btn:hover {
+    transform: translateY(-2px);
+    opacity: 0.8;
+}
+
+/* Rules Button */
+.rules-btn {
+    width: 45px;
+    height: 45px;
+    border: none;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #ff4e50, #9d50bb);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(240, 103, 180, 0.3);
+    margin: 0 0.5rem 0 0;
+}
+
+.rules-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(240, 103, 180, 0.5);
+}
+
+.rules-btn:active {
+    transform: scale(0.95);
+}
+
+.rules-icon {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    line-height: 1;
+}
+
+/* Rules Modal */
+.rules-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 0.3s ease;
+}
+
+.rules-modal.active {
+    display: flex;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.rules-modal-content {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(240, 240, 240, 0.95));
+    border-radius: 30px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+    width: 90%;
+    max-width: 600px;
+    padding: 3rem 2rem;
+    animation: slideUp 0.3s ease;
+    border: 2px solid rgba(240, 103, 180, 0.2);
+    backdrop-filter: blur(10px);
+    position: relative;
+    max-height: 85vh;
+    overflow-y: auto;
+}
+
+.rules-modal-close {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: #999;
+    transition: all 0.2s ease;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.rules-modal-close:hover {
+    color: #ff4e50;
+    background: rgba(240, 103, 180, 0.1);
+}
+
+.rules-title {
+    font-size: 2rem;
+    font-weight: 800;
+    background: linear-gradient(to right, #ff4e50, #9d50bb);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+    margin: 0 0 0.5rem 0;
+    letter-spacing: 1px;
+}
+
+.rules-subtitle {
+    text-align: center;
+    color: #666;
+    font-size: 1rem;
+    margin: 0 0 2rem 0;
+    font-weight: 500;
+}
+
+.rules-instructions {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.rule-item {
+    text-align: center;
+}
+
+.rule-image {
+    max-width: 100%;
+    height: auto;
+    max-height: 150px;
+    object-fit: contain;
+}
+
+.rules-resume-btn {
+    width: 100%;
+    padding: 1rem 2rem;
+    background: linear-gradient(135deg, #ff4e50, #9d50bb);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(240, 103, 180, 0.3);
+    font-family: 'Fredoka', sans-serif;
+}
+
+.rules-resume-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(240, 103, 180, 0.4);
+}
+
+.rules-resume-btn:active {
+    transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+    .rules-modal-content {
+        width: 95%;
+        max-width: 95%;
+        padding: 2rem 1.5rem;
+    }
+
+    .rules-title {
+        font-size: 1.5rem;
+    }
+
+    .rule-image {
+        max-height: 120px;
+    }
+}
+

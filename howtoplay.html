@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Ascend - How To Play</title>
+    <link rel="stylesheet" href="css/rules.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/audio-controls.css">
+</head>
+<body>
+    <div class="background-wrapper stars-bg">
+        <div class="signup-card play-card">
+            <div class="logo-container">
+                <img src="assets/images/heart icon.png" alt="Heart Icon" class="heart-icon bounce">
+            </div>
+
+            <h1 class="title-play">How To Play</h1>
+            <p class="subtitle-play">Get ready for an epic cardiac adventure!</p>
+
+            <div class="instructions-container">
+                <img src="assets/images/challenges.png" alt="5 Challenges" class="rule-image rule-hover">
+                <img src="assets/images/timer.png" alt="25-Second Timer" class="rule-image rule-hover">
+                <img src="assets/images/skip.png" alt="Auto Skip Margin" class="rule-image rule-hover">
+            </div>
+
+            <button class="start-btn" id="startGameBtn">🎮 START GAME</button>
+            <p class="footer-text">Not you? <a href="#" id="logoutLink">Logout and go back</a></p>
+        </div>
+    </div>
+    <script type="module" src="scripts/howtoplay.js"></script>
+    <script type="module">
+        import { playHover } from './scripts/audio.js';
+        // Apply hover sound to the rule images and the start button
+        const hoverables = document.querySelectorAll('.rule-hover, #startGameBtn, #logoutLink');
+        hoverables.forEach(el => {
+            el.addEventListener('mouseenter', playHover);
+        });
+    </script>
+    <script type="module" src="scripts/session.js"></script>
+</body>
+</html>

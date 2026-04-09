@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Ascend - Gameplay</title>
+    <link rel="stylesheet" href="css/game.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/audio-controls.css">
+</head>
+<body class="stars-bg">
+    <div class="game-card compact">
+        
+        <div class="game-header">
+            <div class="logo-area">
+                <img src="assets/images/heart icon.png" alt="Heart" class="small-heart">
+                <h2 class="title-gradient">HEART ASCEND</h2>
+            </div>
+            <div class="stats-area">
+                <button id="rulesBtn" class="rules-btn" title="How to Play">
+                    <span class="rules-icon">?</span>
+                </button>
+                <a href="profile.html" class="profile-link-wrapper">
+                    <div class="profile-box">
+                        <img src="assets/images/Profile1.png" alt="Goblin Profile">
+                    </div>
+                </a>
+                <div class="timer-box timer-pill-red">
+                    <img src="assets/images/clock.png" alt="Clock" class="clock-icon">
+                    <span id="timer-display">10s</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Rules Modal -->
+        <div id="rulesModal" class="rules-modal">
+            <div class="rules-modal-content">
+                <button class="rules-modal-close" id="rulesCloseBtn">✕</button>
+                <h2 class="rules-title">HOW TO PLAY</h2>
+                <p class="rules-subtitle">Get ready for an epic cardiac adventure!</p>
+                <div class="rules-instructions">
+                    <div class="rule-item">
+                        <img src="assets/images/challenges.png" alt="5 Challenges" class="rule-image">
+                    </div>
+                    <div class="rule-item">
+                        <img src="assets/images/timer.png" alt="10-Second Timer" class="rule-image">
+                    </div>
+                    <div class="rule-item">
+                        <img src="assets/images/skip.png" alt="Auto Skip" class="rule-image">
+                    </div>
+                </div>
+                <button class="rules-resume-btn" id="rulesResumeBtn">RESUME GAME</button>
+            </div>
+        </div>
+
+        <div class="progress-container">
+            <div id="progress-bar" class="progress-fill"></div>
+        </div>
+
+        <div class="challenge-section">
+            <div class="api-frame">
+                <img id="game-image" src="assets/images/load.png" alt="Loading Challenge...">
+            </div>
+        </div>
+
+        <div class="answer-section">
+            <label class="answer-label">Enter the number of hearts you see:</label>
+            <div class="input-row">
+                <div class="input-wrapper">
+                    <input type="number" id="user-answer" placeholder="#How many hearts are there?"  min="0" max="9">
+                </div>
+                <button id="submit-btn" class="submit-pill-btn">SUBMIT</button>
+            </div>
+        </div>
+    </div>
+  
+    <script type="module" src="scripts/game.js"></script>
+    <script type="module" src="scripts/session.js"></script>
+</body>
+</html>

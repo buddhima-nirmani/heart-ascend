@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Heart Ascend</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/audio-controls.css">
+</head>
+<body class="welcome-bg">
+    <div id="star-container"></div>
+
+    <div class="signup-card welcome-card">
+        <div class="welcome-hero">
+            <img src="assets/images/heart icon.png" alt="Heart" class="heart-icon bounce">
+        </div>
+
+        <h1 class="title">HEART ASCEND</h1>
+        <p class="subtitle">ARE YOU READY TO TEST YOUR VISION?</p>
+
+        <div class="welcome-text">
+            <p>Count the hearts, beat the clock, and climb the leaderboard in this cosmic challenge.</p>
+        </div>
+
+        <button class="signup-btn start-game-btn">
+            START ADVENTURE 🚀
+        </button>
+    </div>
+
+    <script type="module">
+    import { startBGM, playClick, playHover } from './scripts/audio.js';
+
+    // Start background music
+    startBGM();
+
+    // Add click sound to the Start Adventure button
+    const startBtn = document.querySelector('.start-game-btn');
+    if (startBtn) {
+        startBtn.addEventListener('mouseenter', playHover);
+        startBtn.addEventListener('click', async () => {
+            // We wait for the click sound to attempt to play
+            await playClick();
+            
+            // Give a 200ms window for the sound to be audible 
+            // before the browser unloads the current page
+            setTimeout(() => {
+                location.href = 'signup.html';
+            }, 200);
+        });
+    }
+    </script>
+
+</body>
+</html>
