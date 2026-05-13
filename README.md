@@ -11,7 +11,7 @@ Secure Authentication: User signup and login systems to track individual progres
 Dynamic Difficulty: Custom ranking system ranging from "Heart Novice" to "Cardio Master."
 Responsive Design: Glassmorphism UI with animated backgrounds for an immersive feel.
 
-🛠️ Tech Stack:
+🛠️ Technologies Used:
 
 Frontend: HTML5, CSS3 (Custom Glassmorphism), JavaScript (ES6)
 Backend as a Service (BaaS): Firebase (Authentication & Cloud Firestore)
